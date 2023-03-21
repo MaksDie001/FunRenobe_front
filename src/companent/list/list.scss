@@ -1,0 +1,78 @@
+$color_renobe:rgb(228,228,228);
+.renobe_name{
+  color: $color_renobe;
+  font-size: 32px;
+  margin: 0;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+.renobe_name:hover{
+  color: #fb8c00;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+.hz{
+  content: "";
+  height: 80px;
+  background: rgb(39,39,39);
+  width: 100%;
+  border-radius: 0 10px 0 0;
+}
+.content{
+  padding: 0;
+}
+.renobe_cart{
+  margin:25px 0 0 25px;
+}
+.chapters {
+  color: #81b649;
+  font-size: 12px;
+  border: 1px #81b649 solid;
+  display: inline;
+  padding: 5px 10px;
+  margin-top: 15px;
+}
+
+.renobe_img{
+  border-radius:25px/15px;
+}
+.chapter_name{
+  color: $color_renobe;
+  display: inline;
+  margin-left: 15px;
+  font-size: 18px;
+}
+.renobe_descriptor{
+  color: rgb(170,170,170);
+}
+.renobe_link{
+  margin-top: 20px;
+  display: block;
+  color: #fb8c00;
+  width: 180px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 5px 0 10px 0;
+  border: #fb8c00 2px solid;
+  border-radius: 10px;
+}
+.renobe_link:hover{
+  color:$color_renobe;
+  border: $color_renobe 2px solid;
+  transition: 1s;
+}
+
+.like{
+  color:#81b649;
+  font-size: 36px;
+}
+.dislike{
+  color:rgb(239,68,68);
+  font-size: 36px;
+  margin-left: 25px;
+}
+.like_div{
+  display: flex;
+  flex-direction: row-reverse;
+}

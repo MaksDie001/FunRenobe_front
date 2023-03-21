@@ -1,0 +1,26 @@
+.green{
+    color: #81b649;
+}
+.orange{
+    color: #fb8c00;
+}
+.clock{
+
+}
+.clock_icone{
+    font-size: 20px;
+}
+.clock_text{
+    position: absolute;
+    left: 39px;
+}
+@media (width< 1200px) {
+    .clock_text{
+        top: 265px;
+    }
+}
+@media (width<992px) {
+    .clock_text{
+        top: 331px;
+    }
+}

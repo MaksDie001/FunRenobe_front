@@ -1,0 +1,19 @@
+.likes_count{
+    color:rgb(228,228,228);
+    font-size: 24px;
+    display: inline;
+    margin: 0 0 0 3px;
+    position: absolute;
+}
+.Like_Span{
+    margin-right: 5px;
+}
+.like{
+    color:#81b649;
+    font-size: 36px;
+}
+.dislike{
+    color:rgb(239,68,68);
+    font-size: 36px;
+    margin-left: 25px;
+}

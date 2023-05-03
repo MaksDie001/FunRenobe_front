@@ -1,0 +1,47 @@
+.add_div{
+    margin: 0 auto;
+    width: 80%;
+}
+.add_form{
+    display: flex;
+    flex-direction: column;
+}
+.add_form .add_input{
+    max-width: 50%;
+    margin-top: 15px;
+    background: rgb(18,18,18);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: rgb(228,228,228);
+    height: 35px;
+}
+.add_form .add_input:hover{
+    border: 1px solid rgb(128,128,128);
+}
+.add_label{
+    margin-top: 8px;
+    color:rgb(228,228,228) ;
+}
+.no_badding{
+    padding: 0;
+}
+.feedback__file {
+    display: none;
+}
+.feedback__text{
+    padding: 8px;
+    border: rgb(228,228,228) solid 1px;
+    border-radius: 24px;
+}
+.file_label{
+    margin: 24px 0;
+}
+html body .select__control {
+    margin-top: 8px;
+    background-color: rgb(18,18,18);
+    border: rgb(18,18,18);
+}
+html body .select__control:hover{
+    border: 1px solid rgb(128,128,128);
+}

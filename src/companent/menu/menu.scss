@@ -49,3 +49,28 @@ li{
 #blyt{
   border: none;
 }
+.desktop_burger{
+  position: absolute;
+  left:94px;
+  background: $border_color;
+  width: 350px;
+  height: 100px;
+  z-index: 2;
+  top: 94px;
+}
+.burger_link {
+  padding: 8px 0 8px 12px;
+  display: block;
+  color: rgb(170, 170, 170);;
+  font-size: 20px;
+}
+.burger_link:hover{
+  background: rgb(18,18,18);
+  color: #fb8c00;
+}
+.true{
+  display: block;
+}
+.false{
+  display: none;
+}

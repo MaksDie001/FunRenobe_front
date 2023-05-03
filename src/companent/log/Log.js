@@ -4,8 +4,12 @@ import {AiOutlineUser } from 'react-icons/ai'
 import Register from "../register/register";
 import LogAuth from "../LogAuth/LogAuth";
 import {LOCALSTORAGE} from "localforage";
-let token=localStorage.getItem("token")
-let tokken;
+import services from "../../services/services";
+import Services from "../../services/services";
+
+const serv=new Services()
+const token=localStorage.getItem("token")
+
 class Log extends React.Component{
         constructor(props) {
                 super(props);
@@ -15,13 +19,14 @@ class Log extends React.Component{
                     eror:false,
                     reg_window:false,
                     log_window:false,
-                    user_aut:true
+                    user_aut:true,
                 }
                 this.LogUser=this.LogUser.bind(this)
                 this.Log_window=this.Log_window.bind(this)
                 this.Reg_window=this.Reg_window.bind(this)
         }
-        render() {
+
+    render() {
             if (token === "undefined" || token === null){
                 return(
                     <li><AiOutlineUser className="menu_icon" onClick={this.Log_window}/>{this.state.log_window ?
@@ -59,7 +64,7 @@ class Log extends React.Component{
         this.setState({reg_window:false})
     }
     LogUser=async (user)=> {
-        return await fetch('http://127.0.0.1:8000/auth/token/login/', {
+            await fetch('http://127.0.0.1:8000/auth/token/login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,10 +75,9 @@ class Log extends React.Component{
             })
         })
             .then(data => data.json())
-            .then(res => tokken=res)
-            .then(()=>localStorage.setItem("token",tokken.auth_token))
-            .then(()=>document.location.reload())
-            /*.then(()=>localStorage.setItem("refresh",jwt.refresh))*/
+            .then(res => localStorage.setItem("token",res.auth_token))
+            .then(()=>localStorage.setItem("user_log",true))
+            .then(()=> document.location.reload())
             .catch(error => this.setState({error:error}))
     }
 }

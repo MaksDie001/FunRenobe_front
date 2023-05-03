@@ -3,7 +3,6 @@ import {useLoaderData} from "react-router-dom";
 import "./register.scss"
 import Services from "../../services/services";
 
-let token_crsf=new Services()
 class Register extends React.Component {
     constructor(props) {
         super(props);

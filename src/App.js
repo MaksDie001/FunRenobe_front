@@ -8,6 +8,8 @@ import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import One_renobe from "./companent/One_renobe/One_renobe";
 import Spiner from "./companent/spiner/spiner";
 import ErorMassage from "./companent/ErorMassage/ErorMassage";
+import Renobe_add from "./companent/Renobe_add/Renobe_add";
+import {findByLabelText} from "@testing-library/react";
 
 const Renobe=new Services()
 localStorage.setItem("service",Renobe)
@@ -19,6 +21,7 @@ class App extends React.Component{
       loading:true,
       eror:false,
     }
+    console.log(localStorage.getItem("user_log"))
   }
   componentDidMount() {
       Renobe.Get_all()
@@ -33,6 +36,11 @@ class App extends React.Component{
         }).catch(eror =>{
           this.setState({eror:true})
       })
+    if (localStorage.getItem("user_log") === "true"){
+      Renobe.LogUser()
+      localStorage.setItem("user_log","false")
+      console.log("yes")
+    }
   }
 
   render() {
@@ -43,6 +51,7 @@ class App extends React.Component{
                 <Router>
                     <Menu services={Renobe}/>
                     <Routes>
+                        <Route path={"renobe/add"} element={<Renobe_add />}/>
                         <Route path={""} element={<List data={this.state.data}/>}/>
                         <Route path={"renobe/:slug"} element={<One_renobe />} />
                     </Routes>

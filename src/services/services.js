@@ -2,8 +2,8 @@ import {json} from "react-router-dom";
 import {type} from "@testing-library/user-event/dist/type";
 
 
-let tokken=localStorage.getItem("token");
-
+const tokken=localStorage.getItem("token");
+//localStorage.clear()
 class Services{
     GetResource=async (url="")=>{
         let res
@@ -34,7 +34,7 @@ class Services{
             })
         })
             .then(()=>{
-                localStorage.clear()
+                localStorage.setItem("token","undefined")
                 document.location.reload()
             })
             .catch(res=>{console.log(res)})
@@ -46,7 +46,7 @@ class Services{
         return this.GetResource(url)
     }
     Like_system=async (or,id)=>{
-        await fetch(`http://127.0.0.1:8000/${id}/${or}`, {
+        await fetch(`http://127.0.0.1:8000/${id}/${or}/`, {
                 method: "POST",
                 headers: {
                     Authorization: `Token ${tokken}`
@@ -56,6 +56,17 @@ class Services{
                 }),
             }
         )
+
+    }
+    LogUser=async ()=> {
+            await fetch('http://127.0.0.1:8000/user_show', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Token ${tokken}`
+                },
+            })
+                .then(data => data.json())
+                .then(res => localStorage.setItem("User_id",res.user_id))
     }
 }
 

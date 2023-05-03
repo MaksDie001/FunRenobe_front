@@ -18,6 +18,7 @@ class Country extends React.Component{
                     };
                 });
             });
+        console.log(this.state.country)
     }
     render() {
         return(

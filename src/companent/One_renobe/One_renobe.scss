@@ -84,7 +84,7 @@
   margin-top: 15px;
 }
 .renobe_title{
-  width: 100%;
+  max-width: none;
 }
 .chapter_list_container{
   max-width: 85%;
@@ -99,6 +99,10 @@
   border-radius: 10px 10px 0 0;
 }
 .chapter_list{
-  padding: 5px 0 10px 0;
+  padding: 5px 0 10px 10px;
   border:gray 1px solid;
+}
+.list_clock{
+  position: absolute;
+  right: 9.5%;
 }

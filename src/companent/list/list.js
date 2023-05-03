@@ -30,7 +30,7 @@ class List extends React.Component {
                                 <p className={"renobe_descriptor"}>{res.renobe.renobe_title.toString().length > 300 ? `${res.renobe.renobe_title.toString().slice(0, 300)} ...` : `${res.renobe.renobe_title}`}</p>
                                 <Renobe_clock time={res.date_time}/>
                                 <div className={"like_div"}>
-                                    <Likes_System liked_user={res.renobe.likes} disliked_user={res.renobe.dislikes}
+                                    <Likes_System liked_user={res.renobe.liked} disliked_user={res.renobe.disliked}
                                                   renobe_id={res.renobe.id} likes={res.renobe.total_likes}
                                                   dislikes={res.renobe.total_dislikes}/>
                                 </div>

@@ -89,8 +89,8 @@ class One_renobe extends React.Component {
                                     className={"icons"}/></span> <span
                                     className={"icons_description"}>Ркйтинг Рэнобе:</span></div>
                                 <div className={"icon_text"}>
-                                    <Likes_System class={"_one"} liked_user={renobe.likes}
-                                                  disliked_user={renobe.dislikes} renobe_id={renobe.id}
+                                    <Likes_System class={"_one"} liked_user={renobe.liked}
+                                                  disliked_user={renobe.disliked} renobe_id={renobe.id}
                                                   likes={renobe.total_likes} dislikes={renobe.total_dislikes}/>
                                 </div>
 

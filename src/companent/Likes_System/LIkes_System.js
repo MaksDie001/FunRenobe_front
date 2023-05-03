@@ -21,16 +21,13 @@ class Likes_System extends React.Component{
     }
     componentDidMount() {
         this.setState({like_count:this.props.likes,dislike_count:this.props.dislikes})
-        for (let i in this.props.liked_user){
-            console.log(this.props.liked_user[i])
-            if (this.props.liked_user[i] === Number(user_id)){
-                this.setState({like_color:true})
-            }
+        console.log(this.props.liked_user)
+        if(this.props.liked_user){
+            this.setState({like_color:true})
         }
-        for(let i in this.props.disliked_user){
-            if(this.props.disliked_user[i] === Number(user_id)){
-                this.setState({dislike_color:true})
-            }
+
+        if(this.props.disliked_user){
+            this.setState({dislike_color:true})
         }
     }
 

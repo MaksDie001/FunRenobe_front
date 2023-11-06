@@ -9,7 +9,13 @@ import One_renobe from "./companent/One_renobe/One_renobe";
 import Spiner from "./companent/spiner/spiner";
 import ErorMassage from "./companent/ErorMassage/ErorMassage";
 import Renobe_add from "./companent/Renobe_add/Renobe_add";
-import {findByLabelText} from "@testing-library/react";
+import User_profile from "./companent/user_profile/user_profile";
+import Renobe_chapter_add from "./companent/Renobe_chapter_add/Renobe_chapter_add";
+import User_profile_bookmarks from "./companent/user_profile/user_profile_bookmarks";
+import User_profile_comments from "./companent/user_profile/user_profile_comments";
+import User_profile_info from "./companent/user_profile/user_profile_info";
+
+
 
 const Renobe=new Services()
 localStorage.setItem("service",Renobe)
@@ -20,8 +26,8 @@ class App extends React.Component{
       data: [],
       loading:true,
       eror:false,
+      user_id:0
     }
-    console.log(localStorage.getItem("user_log"))
   }
   componentDidMount() {
       Renobe.Get_all()
@@ -31,29 +37,39 @@ class App extends React.Component{
               data,
               loading:false,
               eror:false,
+              renobe_id:0
             };
           });
         }).catch(eror =>{
           this.setState({eror:true})
+
       })
+    Renobe.GetResource("user_show")
+        .then(data=>this.setState({user_id:data.user_id}))
     if (localStorage.getItem("user_log") === "true"){
       Renobe.LogUser()
       localStorage.setItem("user_log","false")
-      console.log("yes")
     }
-  }
 
+  }
+  updateData = (value) => {
+    this.setState({ renobe_id: value })
+  }
   render() {
     return(
         <div className="app">
             {this.state.eror ? ErorMassage():
                 <div className="row container container_big">
                 <Router>
-                    <Menu services={Renobe}/>
+                    <Menu services={Renobe} user_id={this.state.user_id}/>
                     <Routes>
-                        <Route path={"renobe/add"} element={<Renobe_add />}/>
                         <Route path={""} element={<List data={this.state.data}/>}/>
                         <Route path={"renobe/:slug"} element={<One_renobe />} />
+                        <Route path={"renobe/add"} element={<Renobe_add />}/>
+                        <Route path={"user/:id"} element={<User_profile user_id={this.state.user_id} />}/>
+                        <Route path={"user/:id/beookmarks"} element={<User_profile user_id={this.state.user_id}  />}/>
+                        <Route path={"user/:id/comments"} element={<User_profile user_id={this.state.user_id} />}/>
+                        <Route path={"user/:id/chapter_add/:id"} element={<Renobe_chapter_add />}/>
                     </Routes>
                 </Router>
                     {this.state.loading ?<Spiner />:""}

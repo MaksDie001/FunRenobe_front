@@ -53,6 +53,7 @@ class One_renobe extends React.Component {
                     };
                 });
             });
+
     }
 
     render() {
@@ -78,7 +79,7 @@ class One_renobe extends React.Component {
                                 <div className={"icon_text"}>{renobe.writer_user_id}</div>
 
                                 <div className={"tags icon_label"}><span className={"icons_span"}><FiBook
-                                    className={"icons"}/></span> <span className={"icons_description"}>Жанры:</span>
+                                    className={"icons"}/></span> <span className={"icons_description"}>Тэги:</span>
                                 </div>
                                 <div className={"tags"}><Convert_compoent text={this.state.renobe.tags}
                                                                           text_lenght={JSON.stringify(this.state.renobe.tags).length}

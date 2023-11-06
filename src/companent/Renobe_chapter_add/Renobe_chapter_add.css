@@ -1,0 +1,74 @@
+.Renobe_chapter_add{
+    padding: 0;
+}
+.ch_ad_h3{
+    margin: 0;
+}
+.rca{
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+.rca *{
+    width: 80%;
+    margin: 0.8vw auto 0 auto;
+    padding: 8px;
+}
+.rca .rca_name,.rca_text{
+    display: block;
+    width: 80%;
+    margin: 0.8vw auto 0 auto;
+    padding: 8px;
+    color: white;
+    background: black;
+    border: none;
+}
+.rca .rca_name,.rca_text::placeholder{
+    color: white;
+}
+.rca textarea{
+    height: 30vh;
+}
+.rca_audio_label{
+    color: white;
+    font-size: 24px;
+}
+
+.rca_audio_sp {
+    position: relative;
+}
+.rca_audio_sp input[type=file]{
+    color: white;
+    top: 30px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+}
+
+.input-file-btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 4px;
+    background-color: black;
+    line-height: 22px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+    width: 10vw;
+    border-radius: 5px;
+}
+.rca_audio_sp:hover .input-file-btn{
+    background: aliceblue;
+    color: #54545b;
+}

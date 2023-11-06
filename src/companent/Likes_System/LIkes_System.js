@@ -21,7 +21,6 @@ class Likes_System extends React.Component{
     }
     componentDidMount() {
         this.setState({like_count:this.props.likes,dislike_count:this.props.dislikes})
-        console.log(this.props.liked_user)
         if(this.props.liked_user){
             this.setState({like_color:true})
         }
@@ -58,6 +57,7 @@ class Likes_System extends React.Component{
     }
 
     Likes_controler=()=>{
+        console.log(this.props.liked_user)
         this.setState({like_color:!this.state.like_color})
         if (this.state.dislike_color){
             this.setState({dislike_color:false})

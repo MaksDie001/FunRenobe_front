@@ -7,6 +7,8 @@ import logo from "./image (1).png"
 import Log from "../log/Log";
 import { Link } from "react-router-dom";
 
+
+
 function Menu(props) {
     const [burger, BurgerSet] = useState(false)
 
@@ -22,6 +24,7 @@ function Menu(props) {
                     <div className={"desktop_burger " + burger}>
                         <ul>
                             <Link className={"burger_link"} to={"renobe/add"}  onClick={()=>BurgerSet(!burger)}>Добавить мангу</Link>
+                            {props.user_id ? <Link className={"burger_link"} to={`user/${props.user_id}`}  onClick={()=>BurgerSet(!burger)}>Профиль</Link> : <span></span>}
                         </ul>
                     </div>
                     </li>

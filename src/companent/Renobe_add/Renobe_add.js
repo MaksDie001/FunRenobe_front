@@ -55,40 +55,28 @@ function Renobe_add(props) {
     const Submit=async ()=>{
         console.log(slug)
         let tags = renobe_tags.map((tag) => tag.value);
-
-
         const formData = new FormData();
-        formData.append('renobe_img', document.querySelector('input[type=file]').files[0]);
-        console.log(document.querySelector('input[type=file]').files[0])
+        formData.append('slug', slug);
+        formData.append('renobe_name', renobe_name);
+        formData.append('renobe_title', renobe_title);
+        formData.append('Note', renobe_note);
+        formData.append('renobe_status', renobe_status);
+        formData.append('transnlation_status', renobe_translate_status);
+        formData.append('country', renobe_country.value);
+        formData.append('writer_user_id', "1");
+        formData.append('tags', tags);
+        await formData.append('renobe_img', document.querySelector('input[type=file]').files[0]);
 
         await fetch("http://127.0.0.1:8000/renobe/add/",{
             method:"POST",
             headers:{
                 Authorization:`Token ${token}`,
-                'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                "slug": slug,
-                "renobe_name":renobe_name,
-                "renobe_img": renobe_img,
-                "renobe_title": renobe_title,
-                "renobe_status": renobe_status,
-                "transnlation_status": renobe_translate_status,
-                "Note": renobe_note,
-                "writer_user_id": "1",
-                "country": renobe_country.value,
-                "tags":tags,
-            })
-        })
+            body:formData
+        }) .then(res=>document.location.reload())
             .catch(eror=>{
                 console.log(eror)
             })
-        await fetch(`http://127.0.0.1:8000/Renobe/img/add/${slug}`,{
-            method:"PUT",
-            headers:{
-                Authorization:`Token ${token}`,
-            }
-        })
     }
     useEffect( () => {
         const load = async () => {
@@ -98,6 +86,7 @@ function Renobe_add(props) {
                     return res
                 }))
         }
+
         const country_load=async ()=>{
             await fetch("http://127.0.0.1:8000/country")
                 .then(data=>data.json())
@@ -109,7 +98,7 @@ function Renobe_add(props) {
         load()
     }, [])
     return (
-        <div className={"col-11 no_badding"}>
+        <div className={"col-11 no_padding"}>
             <div className={"hz"} >Добавление Рэнобе</div>
             <div className={"add_div"}>
                 <form className={"add_form"}>
@@ -174,7 +163,7 @@ function Renobe_add(props) {
                         }}
                         />
                     </label>
-                    <button type={"button"} onClick={()=>Submit()}>Submit</button>
+                    <button className={"r_add_button"} type={"button"} onClick={()=>Submit()}>Submit</button>
                 </form>
             </div>
         </div>

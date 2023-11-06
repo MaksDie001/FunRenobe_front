@@ -10,6 +10,9 @@ import Likes_System from "../Likes_System/LIkes_System";
 const services=new Services()
 
 class List extends React.Component {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(typeof this.props.data)
+    }
 
     render() {
         return (
@@ -19,7 +22,7 @@ class List extends React.Component {
                     return (
                         <div className={"renobe_cart row"} key={res.id}>
                             <div className={"col-3"}><img src={res.renobe.renobe_img} width={180} height={250}
-                                                          className={" renobe_img"}/>
+                                                          className={" renobe_img"} loading={"lazy"}/>
                                 <Link to={`renobe/${res.renobe.slug}`} className={"renobe_link"}>читать</Link>
                             </div>
                             <div className={"cart_inherit col-9"}><h2><Link to={`renobe/${res.renobe.slug}`}

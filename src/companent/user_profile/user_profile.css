@@ -1,0 +1,82 @@
+.avatar{
+    background: rgb(18, 18, 18);
+    padding: 15px 19px;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    border-radius: 50px;
+}
+.avatar_img{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    border-radius: 50px;
+}
+.user_content{
+    color: white;
+}
+.username{
+    position: absolute;
+    margin-left: 85px;
+}
+.user_profile{
+    max-width: 88%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-top: 28px;
+}
+.user_profile .user_curtains.active{
+    color: #0050d1;
+    text-decoration: underline;
+}
+.user_curtains{
+    text-decoration: none;
+    font-size: 22px;
+    color: whitesmoke;
+    font-family: Arial;
+    margin-left: 15px;
+}
+.info_block1{
+    margin: 15px  5px;
+    padding: 10px;
+    border: solid 1px #54545b;
+    border-radius: 5px;
+    width: 80%;
+    color: ghostwhite;
+}
+.user_content{
+    padding-left:28px ;
+    margin-top: 30px;
+}
+.user_content_text{
+    font-size: 18px;
+    color: #ffffff;
+    padding: 12px;
+    display: inline;
+}
+.user_content_info{
+    border: #54545b 1px solid;
+    border-radius: 5px;
+    padding: 8px;
+    width: 91.5%;
+}
+.user_renobe_card_img{
+    width: 50px;
+}
+.user_renobe_card{
+    padding: 9px 4.5px;
+    margin: 18px 9px;
+    border: 1px rgb(128, 128, 128) solid ;
+    border-radius: 5px;
+    width: 80%;
+}
+.user_renobe_cards_text_name{
+    font-size: 24px;
+    color: white;
+    display: block;
+}
+.user_renobe_cards_tags{
+    margin: 0;
+
+}

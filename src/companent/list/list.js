@@ -2,16 +2,22 @@ import React from 'react';
 import "./list.scss"
 import Renobe_clock from "../Renobe_clock/Renobe_clock";
 import { Link } from "react-router-dom";
-import {FiHeart} from "react-icons/fi"
-import {RiDislikeLine} from "react-icons/ri"
 import Services from "../../services/services";
 import Likes_System from "../Likes_System/LIkes_System";
-
 const services=new Services()
-
+let url=document.location.href
 class List extends React.Component {
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(typeof this.props.data)
+    constructor(props) {
+        super(props);
+        this.state={
+            page:0,
+
+        }
+    }
+
+    componentDidMount() {
+        const page = url.indexOf("page=")
+        this.setState({page: url[page + 5]})
     }
 
     render() {
@@ -41,6 +47,11 @@ class List extends React.Component {
                         </div>
                     )
                 })}
+                <div className={"pagination"}>
+                    <Link href={""}><span className={"preview"}>{"<"}</span></Link>
+                    {this.state.page}
+                    <Link href={`/?page=${this.state.page +1}`}><span className={"next"}>{">"}</span></Link>
+                </div>
             </div>
         )
     }

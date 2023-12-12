@@ -24,17 +24,21 @@ class App extends React.Component{
     super(props);
     this.state= {
       data: [],
+      count:0,
       loading:true,
       eror:false,
       user_id:0
     }
   }
+
+
   componentDidMount() {
       Renobe.Get_all()
         .then(data => {
+          this.setState({data:data.results})
+          this.setState({count:data.count})
           this.setState(() => {
             return {
-              data,
               loading:false,
               eror:false,
               renobe_id:0
@@ -50,7 +54,6 @@ class App extends React.Component{
       Renobe.LogUser()
       localStorage.setItem("user_log","false")
     }
-
   }
   updateData = (value) => {
     this.setState({ renobe_id: value })
@@ -63,7 +66,7 @@ class App extends React.Component{
                 <Router>
                     <Menu services={Renobe} user_id={this.state.user_id}/>
                     <Routes>
-                        <Route path={""} element={<List data={this.state.data}/>}/>
+                        <Route path={""} element={<List data={this.state.data} count={this.state.count} next={this.state.next} preview={this.state.preview}/>}/>
                         <Route path={"renobe/:slug"} element={<One_renobe />} />
                         <Route path={"renobe/add"} element={<Renobe_add />}/>
                         <Route path={"user/:id"} element={<User_profile user_id={this.state.user_id} />}/>
